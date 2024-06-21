@@ -1,3 +1,4 @@
+-- the code is extremely messy because something in the code editor fucked it up all at once and for some reason removed indents in some parts of the code while kept indents in some other parts of the code LOL
 local LOAD_TIME = tick()
 local queueonteleport = queue_on_teleport or queueonteleport
 local setclipboard = toclipboard or setrbxclipboard or setclipboard
@@ -198,7 +199,8 @@ end)
     end)
 
     local remotes = serv:Channel("Remotes")
-    
+    remotes:Label(
+        "\nFires all remotes in the game as an attempt to prompt the item.\nWarning: This can be risky and can fire a decoy remote!\n")
     remotes:Textbox("UGC Limited Item ID", "Enter Item ID that you wanna be included in the arguments...", false,
         function(t)
             local tt = tonumber(t)
@@ -322,7 +324,7 @@ end)
         local input = loadstring(game:HttpGet('https://pastebin.com/raw/dYzQv3d8'))()
         input.press(Enum.KeyCode.F9)
     end)
-    local games = serv:Channel("Teleport")
+    local games = serv:Channel("Games")
     local antikickonteleport = false
     games:Toggle("Inject Anti Kick on Teleport", false, function(bool)
         if bool then
@@ -428,7 +430,7 @@ end)
     games:Label("Current Game's Universe ID:\n" .. game.GameId)
     games:Label("Current Game's Job ID: \n" .. game.JobId)
     
-    local input = serv:Channel("Automations")
+    local input = serv:Channel("Input Automations")
     input:Toggle("Auto Use Tools in Inventory", false, function(bool)
         if bool then
             local Player = Players.LocalPlayer
@@ -725,7 +727,7 @@ end)
     end)
     purchase:Seperator()
     local serv2 = win:Server("Explorer", "")
-    local explorer = serv2:Channel("work in progress bitch")
+    local explorer = serv2:Channel("work in progress")
     explorer:Label("will add stupid roblox env explorer soon")
     main:Label("                            Wynerd loaded in " ..
                    string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
