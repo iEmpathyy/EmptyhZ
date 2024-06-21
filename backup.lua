@@ -1,4 +1,3 @@
--- the code is extremely messy because something in the code editor fucked it up all at once and for some reason removed indents in some parts of the code while kept indents in some other parts of the code LOL
 local LOAD_TIME = tick()
 local queueonteleport = queue_on_teleport or queueonteleport
 local setclipboard = toclipboard or setrbxclipboard or setclipboard
@@ -112,14 +111,14 @@ end
 
 task.spawn(function()
     local discord = loadstring(game:HttpGet("https://raw.githubusercontent.com/iEmpathyy/EmptyhZ/main/Config%20Wyvern.txt"))()
-    local win = discord:Window("Wyvern - Cracked by Shinki & Rass")
+    local win = discord:Window("Wyvern - Skidded by Vouriōus")
     local serv = win:Server("Vouriōus Hub", "http://www.roblox.com/asset/?id=6031075938")
     local main = serv:Channel("Home")
-    main:Label("\nThank you for using Wynerd!\nThe #2 UGC Games Penetration Testing Tool! (mine is still better)")
+    main:Label("\nUGC Penetration by xsohe, vouriōus & rass")
     main:Label("Check out the other Social Media to see our available tools!")
     main:Seperator()
-    -- main:Label("\n\nPlanned:\n- The Explorer you see at the left side of your screen\n- Move some stuff that doesn't belong in their category\n- More features\n- New techniques to get free UGC items from games")
-    main:Button("Join My WhatsApp Channel", function()
+
+    main:Button("WhatsApp Channel", function()
     -- Set the link to be copied
     local link = "https://whatsapp.com/channel/0029VaHheNk4SpkFwASXLd2Q"
     
@@ -129,10 +128,10 @@ task.spawn(function()
     end)
     
     -- Display a notification
-    discord:Notification("Join the WhatsApp Channel", "Link copied to clipboard!", "Done!")
+    discord:Notification("WhatsApp Channel", "Link copied to clipboard!", "Done!")
 end)
 
-    main:Button("Join My Discord Channel", function()
+    main:Button("Discord Channel", function()
     -- Set the link to be copied
     local link = "https://discord.com/invite/q3XpBEGsWc"
     
@@ -142,8 +141,30 @@ end)
     end)
     
     -- Display a notification
-    discord:Notification("Join the Discord Channel", "Link copied to clipboard!", "Done!")
+    discord:Notification("Discord Channel", "Link copied to clipboard!", "Done!")
 end)
+
+    main:Seperator()
+    
+    players:Label("\nUses SetLocalPlayerInfo() to change your info!")
+    players:Textbox("Spoof as player with User ID (Client)", "Enter your new User ID...", false, function(t)
+        local tt = tonumber(t)
+        if type(tt) == "number" then
+            local name = Players:GetNameFromUserIdAsync(tt)
+            Players:SetLocalPlayerInfo(tt, name, name, Enum.MembershipType.Premium, false)
+            discord:Notification("Success", "You are now " .. name .. "! (" .. tt .. ")", "Okay!")
+        else
+            discord:Notification("Failed", "Please put a correct User ID.", "Okay!")
+        end
+    end)
+    players:Button("Spoof yourself as the Game Owner", function()
+        local name = Players:GetNameFromUserIdAsync(tonumber(game.CreatorId))
+        Players:SetLocalPlayerInfo(game.CreatorId, name, name, Enum.MembershipType.Premium, false)
+        discord:Notification("Success", "You are now " .. name .. "! (" .. game.CreatorId .. ")", "Okay!")
+    end)
+    
+    main:Seperator()
+    
     main:Toggle("Anti Kick (Client)", false, function(bool)
         if bool == "true" then
             local kick;
@@ -160,17 +181,24 @@ end)
             end)
         end
     end)
+    main:Toggle("Anti AFK", false, function(bool)
+            if bool then
+                Players.LocalPlayer.Idled:connect(function()
+                    VirtualUser:CaptureController()
+                    VirtualUser:ClickButton2(Vector2.new())
+                end)
+            end
+        end)
     main:Seperator()
     main:Button("Update Logs", function()
-        discord:Notification("Updates", "(+) Added Social Media", "Okay!")
+        discord:Notification("Updates", "[+] Added Social Media\n[-] Removed UGC Limited, Player & Network features", "Okay!")
     end)
-    main:Button("Credits", function()
-        discord:Notification("Remaker Credits", "Shinki & Rass", "Okay!")
+    main:Button("Skidded Credits", function()
+        discord:Notification("Skidded by Vouriōus", "Helper:\nRass\nDion\nSohe", "Okay!")
     end)
 
     local remotes = serv:Channel("Remotes")
-    remotes:Label(
-        "\nFires all remotes in the game as an attempt to prompt the item.\nWarning: This can be risky and can fire a decoy remote!\n")
+    
     remotes:Textbox("UGC Limited Item ID", "Enter Item ID that you wanna be included in the arguments...", false,
         function(t)
             local tt = tonumber(t)
@@ -294,7 +322,7 @@ end)
         local input = loadstring(game:HttpGet('https://pastebin.com/raw/dYzQv3d8'))()
         input.press(Enum.KeyCode.F9)
     end)
-    local games = serv:Channel("Games")
+    local games = serv:Channel("Teleport")
     local antikickonteleport = false
     games:Toggle("Inject Anti Kick on Teleport", false, function(bool)
         if bool then
@@ -399,153 +427,8 @@ end)
     games:Label("Current Game's Place ID:\n" .. game.PlaceId)
     games:Label("Current Game's Universe ID:\n" .. game.GameId)
     games:Label("Current Game's Job ID: \n" .. game.JobId)
-    local players = serv:Channel("Players")
-    players:Label("\nUses SetLocalPlayerInfo() to change your info!")
-    players:Textbox("Spoof as player with User ID (Client)", "Enter your new User ID...", false, function(t)
-        local tt = tonumber(t)
-        if type(tt) == "number" then
-            local name = Players:GetNameFromUserIdAsync(tt)
-            Players:SetLocalPlayerInfo(tt, name, name, Enum.MembershipType.Premium, false)
-            discord:Notification("Success", "You are now " .. name .. "! (" .. tt .. ")", "Okay!")
-        else
-            discord:Notification("Failed", "Please put a correct User ID.", "Okay!")
-        end
-    end)
-    players:Button("Spoof yourself as the Game Owner", function()
-        local name = Players:GetNameFromUserIdAsync(tonumber(game.CreatorId))
-        Players:SetLocalPlayerInfo(game.CreatorId, name, name, Enum.MembershipType.Premium, false)
-        discord:Notification("Success", "You are now " .. name .. "! (" .. game.CreatorId .. ")", "Okay!")
-    end)
-    players:Seperator()
-    players:Toggle("Auto Hide Other Players", false, function(bool)
-        if bool then
-            local usernames = {}
-            while task.wait(0.1) do
-                local players = Players:GetPlayers()
-                local localPlayer = Players.LocalPlayer
-                local cusernames = {}
-                for _, player in ipairs(players) do
-                    if player ~= localPlayer then
-                        table.insert(cusernames, player.Name)
-                        if not usernames[player.Name] then
-                            usernames[player.Name] = true
-                        end
-                    end
-                end
-                for username, _ in pairs(usernames) do
-                    if not table.find(cusernames, username) then
-                        usernames[username] = nil
-                    end
-                end
-                local models = game.Workspace:GetChildren()
-                for _, model in ipairs(models) do
-                    if model:IsA("Model") then
-                        if usernames[model.Name] then
-                            model:Destroy()
-                        end
-                    end
-                end
-                if Visit:FindFirstChild("Part") then
-                    break
-                end
-            end
-        else
-            local kill = Instance.new("Part")
-            kill.Parent = Visit
-            task.wait(0.2)
-            kill:Destroy()
-        end
-    end)
-    players:Toggle("Show Hidden GUIs of LocalPlayer", false, function(bool)
-        if bool then
-            guis = {}
-            for i, v in pairs(Players.LocalPlayer:FindFirstChildWhichIsA("PlayerGui"):GetDescendants()) do
-                if (v:IsA("Frame") or v:IsA("ImageLabel") or v:IsA("ScrollingFrame")) and not v.Visible then
-                    v.Visible = true
-                    if not FindInTable(guis, v) then
-                        table.insert(guis, v)
-                    end
-                end
-            end
-        elseif not bool then
-            for i, v in pairs(guis) do
-                v.Visible = false
-            end
-            guis = {}
-        end
-    end)
-    players:Toggle("Anti AFK", false, function(bool)
-        if bool then
-            Players.LocalPlayer.Idled:connect(function()
-                VirtualUser:CaptureController()
-                VirtualUser:ClickButton2(Vector2.new())
-            end)
-        end
-    end)
-    local signal
-    players:Seperator()
-    players:Button("Create Waypoint at Current Position", function()
-        if not Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            discord:Notification("Failure", "HumanoidRootPart is missing from character", "Okay!")
-            return
-        end
-        getgenv().pos = Players.LocalPlayer.Character.HumanoidRootPart.Position
-        discord:Notification("Success", "Created waypoint at " .. tostring(getgenv().pos), "Okay!")
-        if getgenv().addeduis then
-            return
-        else
-            players:Button("Teleport to Saved Waypoint", function()
-                Players.LocalPlayer.Character:MoveTo(getgenv().pos)
-            end)
-            players:Button("Set Spawnpoint to Saved Waypoint", function()
-                signal = Players.LocalPlayer.CharacterAdded:Connect(function()
-                    Players.LocalPlayer.Character:MoveTo(getgenv().pos)
-                end)
-                players:Button("Delete Spawnpoint at Saved Waypoint", function()
-                    signal:Disconnect()
-                end)
-            end)
-            players:Button("Delete Saved Waypoint", function()
-                getgenv().pos = nil
-            end)
-        end
-        getgenv().addeduis = true
-    end)
-    local network = serv:Channel("Network")
-    network:Label("\nThis can bypass rate limits when firing remotes!")
-    network:Textbox("KBPS Limit", "Type a big number to have no limit...", true, function(t)
-        local tt = tonumber(t)
-        if type(tt) == "number" then
-            NetworkClient:SetOutgoingKBPSLimit(tt)
-            discord:Notification("Success!", "KBPS Limit has been set to " .. tostring(tt), "Okay!")
-        else
-            discord:Notification("Hold up!", "KBPS Limit must be a number.", "Okay!")
-        end
-    end)
-    network:Seperator()
-    network:Label("Simulates lag/delay from client -> server.")
-    local drop = network:Dropdown("Delay Intensiveness", {"Normal", "Mild", "Medium", "Severe", "No Connection"},
-        function(bool)
-            print(bool)
-            if bool == "Normal" then
-                NetworkSettings.IncomingReplicationLag = 0
-            elseif bool == "Mild" then
-                NetworkSettings.IncomingReplicationLag = 1
-            elseif bool == "Medium" then
-                NetworkSettings.IncomingReplicationLag = 2
-            elseif bool == "Severe" then
-                NetworkSettings.IncomingReplicationLag = 3
-            elseif bool == "No Connection" then
-                NetworkSettings.IncomingReplicationLag = 10
-            end
-        end)
-    network:Seperator()
-    network:Button("Show Average Client -> Server Ping", function()
-        discord:Notification("Average Ping", math.round(Players.LocalPlayer:GetNetworkPing() * 1000) .. "ms", "Okay!")
-    end)
     
-  
-    local input = serv:Channel("Input Automations")
+    local input = serv:Channel("Automations")
     input:Toggle("Auto Use Tools in Inventory", false, function(bool)
         if bool then
             local Player = Players.LocalPlayer
@@ -842,7 +725,7 @@ end)
     end)
     purchase:Seperator()
     local serv2 = win:Server("Explorer", "")
-    local explorer = serv2:Channel("work in progress")
+    local explorer = serv2:Channel("work in progress bitch")
     explorer:Label("will add stupid roblox env explorer soon")
     main:Label("                            Wynerd loaded in " ..
                    string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
