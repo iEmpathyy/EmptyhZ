@@ -119,7 +119,7 @@ task.spawn(function()
     main:Label("Check out the other Social Media to see our available tools!")
     main:Seperator()
 
-    main:Button("WhatsApp Channel", function()
+    main:Button("Wangsaf Channel", function()
     -- Set the link to be copied
     local link = "https://whatsapp.com/channel/0029VaHheNk4SpkFwASXLd2Q"
     
