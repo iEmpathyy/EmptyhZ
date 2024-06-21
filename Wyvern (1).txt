@@ -111,7 +111,7 @@ for i, v in pairs(game.RobloxReplicatedStorage:GetDescendants()) do
 end
 
 task.spawn(function()
-    local discord = loadstring(game:HttpGet("https://raw.githubusercontent.com/iRasz/Script/main/Config%20Wyvern"))()
+    local discord = loadstring(game:HttpGet("https://raw.githubusercontent.com/iEmpathyy/EmptyhZ/main/Config%20Wyvern.txt"))()
     local win = discord:Window("Wyvern - Cracked by Shinki & Rass")
     local serv = win:Server("Vouriōus Hub", "http://www.roblox.com/asset/?id=6031075938")
     local main = serv:Channel("Home")
