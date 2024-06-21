@@ -147,8 +147,8 @@ end)
 
     main:Seperator()
     
-    players:Label("\nUses SetLocalPlayerInfo() to change your info!")
-    players:Textbox("Spoof as player with User ID (Client)", "Enter your new User ID...", false, function(t)
+    main:Label("\nUses SetLocalPlayerInfo() to change your info!")
+    main:Textbox("Spoof as player with User ID (Client)", "Enter your new User ID...", false, function(t)
         local tt = tonumber(t)
         if type(tt) == "number" then
             local name = Players:GetNameFromUserIdAsync(tt)
@@ -158,7 +158,7 @@ end)
             discord:Notification("Failed", "Please put a correct User ID.", "Okay!")
         end
     end)
-    players:Button("Spoof yourself as the Game Owner", function()
+    main:Button("Spoof yourself as the Game Owner", function()
         local name = Players:GetNameFromUserIdAsync(tonumber(game.CreatorId))
         Players:SetLocalPlayerInfo(game.CreatorId, name, name, Enum.MembershipType.Premium, false)
         discord:Notification("Success", "You are now " .. name .. "! (" .. game.CreatorId .. ")", "Okay!")
