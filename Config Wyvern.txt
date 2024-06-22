@@ -1793,7 +1793,7 @@ function DiscordLib:Window(text)
 		Glow.BorderSizePixel = 0
 		Glow.Position = UDim2.new(0, -15, 0, -15)
 		Glow.Size = UDim2.new(1, 30, 1, 30)
-		Glow.ZIndex = 1 -- aslinya 0
+		Glow.ZIndex = 0 -- aslinya 0
 		Glow.Image = "rbxassetid://4996891970"
 		Glow.ImageColor3 = Color3.fromRGB(15, 15, 15)
 		Glow.ScaleType = Enum.ScaleType.Slice
@@ -1858,7 +1858,7 @@ function DiscordLib:Window(text)
 		GlowChannel.BorderSizePixel = 0
 		GlowChannel.Position = UDim2.new(0, -33, 0, -91)
 		GlowChannel.Size = UDim2.new(1.06396091, 30, 0.228228226, 30)
-		GlowChannel.ZIndex = 1 -- aslinya 0
+		GlowChannel.ZIndex = 0 -- aslinya 0
 		GlowChannel.Image = "rbxassetid://4996891970"
 		GlowChannel.ImageColor3 = Color3.fromRGB(15, 15, 15)
 		GlowChannel.ScaleType = Enum.ScaleType.Slice
@@ -2904,7 +2904,7 @@ function DiscordLib:Window(text)
 				Color.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
 				Color.Position = UDim2.new(0, 10, 0, 10)
 				Color.Size = UDim2.new(0, 154, 0, 118)
-				Color.ZIndex = 1 -- asli 10
+				Color.ZIndex = 10 -- asli 10
 				Color.Image = "rbxassetid://4155801252"
 
 				ColorCorner.CornerRadius = UDim.new(0, 3)
