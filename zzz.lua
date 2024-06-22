@@ -113,13 +113,6 @@ task.spawn(function()
     local win = discord:Window("Wyvern - Skidded by Vouriōus")
     local serv = win:Server("Vouriōus Hub", "http://www.roblox.com/asset/?id=6031075938")
     local main = serv:Channel("Home")
-    
-    main:Label("                            Wynerd loaded in " ..
-                   string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
-    pcall(function()
-        message:Destroy()
-    end)
-end)
 
     main:Label("\nUGC Penetration by xsohe, vouriōus & rass")
     main:Label("Check out the other Social Media to see our available tools!")
@@ -732,3 +725,10 @@ end)
     ajg:Button("Fly UI", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ddaveyz/Fix-Fly-V4/main/Fly.lua"))()
     end)
+
+    main:Label("                            Wynerd loaded in " ..
+                   string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
+    pcall(function()
+        message:Destroy()
+    end)
+end)
