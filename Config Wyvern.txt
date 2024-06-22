@@ -103,6 +103,7 @@ function DiscordLib:Window(text)
 	local fs = false
 	local settingsopened = false
 	local MainFrame = Instance.new("Frame")
+	local Background = Instance.new("ImageLabel")
     
 	local TopFrame = Instance.new("Frame")
 	local Title = Instance.new("TextLabel")
