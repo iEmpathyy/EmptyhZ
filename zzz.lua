@@ -17,7 +17,7 @@ local Background = Instance.new("ImageLabel")
     	Background.ScaleType = Enum.ScaleType.Crop
     	Background.Position = UDim2.new(0, 0, 0, 0)
     	Background.ZIndex = 0
-    	Background.BackgroundTransparency = 0
+    	Background.BackgroundTransparency = 1
 
 -- // cloneref function for exploits that dont support it
 local a = Instance.new("Part")
