@@ -100,7 +100,7 @@ function DiscordLib:Window(text)
     Background.Image = "rbxassetid://18152361113" -- Ganti dengan URL yang tepat
     Background.ScaleType = Enum.ScaleType.Crop
     Background.Position = UDim2.new(0, 0, 0, 0)
-    Background.ZIndex = 0
+    Background.ZIndex = -1
     Background.BackgroundTransparency = 1
     -- Lanjutkan konfigurasi elemen GUI lainnya
     
