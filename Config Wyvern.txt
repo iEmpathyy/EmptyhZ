@@ -2904,7 +2904,7 @@ function DiscordLib:Window(text)
 				Color.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
 				Color.Position = UDim2.new(0, 10, 0, 10)
 				Color.Size = UDim2.new(0, 154, 0, 118)
-				Color.ZIndex = 10
+				Color.ZIndex = 1 -- asli 10
 				Color.Image = "rbxassetid://4155801252"
 
 				ColorCorner.CornerRadius = UDim.new(0, 3)
