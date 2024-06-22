@@ -10,6 +10,14 @@ local firetouchinterests = fire_touch_interests or firetouchinterests
 local getnamecallmethod = get_namecall_method or getnamecallmethod
 local setnamecallmethod = set_namecall_method or setnamecallmethod
 local restorefunction = restorefunction or restoreclosure or restorefunc
+local Background = Instance.new("ImageLabel")
+        Background.Parent = MainFrame
+	Background.Size = UDim2.new(1, 0, 1, 0)
+    	Background.Image = "rbxassetid://18152361128"
+    	Background.ScaleType = Enum.ScaleType.Crop
+    	Background.Position = UDim2.new(0, 0, 0, 0)
+    	Background.ZIndex = 0
+    	Background.BackgroundTransparency = 0
 
 -- // cloneref function for exploits that dont support it
 local a = Instance.new("Part")
