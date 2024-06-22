@@ -65,16 +65,6 @@ message.Text = "Loading Vouriōus Hub"
 message.Name = "ðŸ’‹â€  ð“ð“˜ð“–ð“–ð“â€€! ð“—ð“ð“’ð“š  â€ðŸ’‹"
 message.Parent = CoreGui
 
--- Background image label
-local Background = Instance.new("ImageLabel")
-Background.Parent = message
-Background.Size = UDim2.new(1, 0, 1, 0)
-Background.Image = "rbxassetid://18152361128" -- Ganti dengan URL yang tepat
-Background.ScaleType = Enum.ScaleType.Crop
-Background.Position = UDim2.new(0, 0, 0, 0)
-Background.ZIndex = 0
-Background.BackgroundTransparency = 1
-
 task.wait(0.25)
 
 getgenv().stealth_call = function(script)
@@ -123,6 +113,14 @@ task.spawn(function()
     local win = discord:Window("Wyvern - Skidded by Vouriōus")
     local serv = win:Server("Vouriōus Hub", "http://www.roblox.com/asset/?id=6031075938")
     local main = serv:Channel("Home")
+    
+    main:Label("                            Wynerd loaded in " ..
+                   string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
+    pcall(function()
+        message:Destroy()
+    end)
+end)
+
     main:Label("\nUGC Penetration by xsohe, vouriōus & rass")
     main:Label("Check out the other Social Media to see our available tools!")
     main:Seperator()
@@ -140,7 +138,7 @@ task.spawn(function()
     discord:Notification("WhatsApp Channel", "Link copied to clipboard!", "Done!")
 end)
 
-    main:Button("Discord Channel", function()
+    main:Button("Discord Server", function()
     -- Set the link to be copied
     local link = "https://discord.com/invite/q3XpBEGsWc"
     
@@ -150,7 +148,7 @@ end)
     end)
     
     -- Display a notification
-    discord:Notification("Discord Channel", "Link copied to clipboard!", "Done!")
+    discord:Notification("Discord Server", "Link copied to clipboard!", "Done!")
 end)
 
     main:Seperator()
@@ -203,7 +201,7 @@ end)
         discord:Notification("Updates", "[+] Added Social Media\n[-] Removed UGC Limited, Player & Network features", "Okay!")
     end)
     main:Button("Skidded Credits", function()
-        discord:Notification("Skidded by Vouriōus", "Helper:\nRass\nDion\nSohe", "Okay!")
+        discord:Notification("Skidded by Vouriōus", "HELPER BY:\nSoheNyz\nRass\nDion\nxqiyaa and others dawg", "Okay!")
     end)
 
     local remotes = serv:Channel("Remotes")
@@ -439,27 +437,7 @@ end)
     games:Label("Current Game's Job ID: \n" .. game.JobId)
     
     local input = serv:Channel("Input Automations")
-    input:Toggle("Auto Use Tools in Inventory", false, function(bool)
-        if bool then
-            local Player = Players.LocalPlayer
-            getgenv().firetools = true
-            spawn(function()
-                while wait() and firetools do
-                    pcall(function()
-                        local Tool = Player.Backpack:FindFirstChildWhichIsA("Tool")
-                        if not Player.Character:FindFirstChildWhichIsA("Tool") then
-                            Player.Character:FindFirstChildWhichIsA("Humanoid"):EquipTool(Tool)
-                        end
-                        if Player.Character:FindFirstChildWhichIsA("Tool") then
-                            Player.Character:FindFirstChildWhichIsA("Tool"):Activate()
-                        end
-                    end)
-                end
-            end)
-        elseif not bool then
-            getgenv().firetools = false
-        end
-    end)
+        
     input:Toggle("Auto Grab All Dropped Tools", false, function(bool)
         if bool then
             for i, v in pairs(workspace:GetChildren()) do
@@ -734,12 +712,23 @@ end)
         end
     end)
     purchase:Seperator()
-    local serv2 = win:Server("Explorer", "")
-    local explorer = serv2:Channel("work in progress")
-    explorer:Label("will add stupid roblox env explorer soon")
-    main:Label("                            Wynerd loaded in " ..
-                   string.format("%s seconds.", string.format("%.2f", tostring(tick() - LOAD_TIME))))
-    pcall(function()
-        message:Destroy()
+    local serv2 = win:Server("Create by xsohe", "")
+    local ajg = serv2:Channel("Universal Script")
+    ajg:Label("ini adalah script universal yg gw tambahin sendiri berdasarkan yg gw tau \nklo mo request ntar gw tmbahin fiturnya")
+
+    ajg:Seperator()
+    ajg:Button("Infinite Yield", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/Infiniteyield/master/source"), true)()
     end)
-end)
+
+    ajg:Button("Ghost Hub", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub"))()
+    end)
+
+    ajg:Button("Keyboard", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/advhsjjdhxsidifvsh/mobkeyboard/main/main.txt", true))()
+    end)
+    
+    ajg:Button("Fly UI", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ddaveyz/Fix-Fly-V4/main/Fly.lua"))()
+    end)
