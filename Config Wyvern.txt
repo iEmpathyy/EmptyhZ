@@ -93,7 +93,16 @@ function DiscordLib:Window(text)
 	local fs = false
 	local settingsopened = false
 	local MainFrame = Instance.new("Frame")
+	
 	local Background = Instance.new("ImageLabel") -- Background image label
+	Background.Parent = MainFrame
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.Image = "https://e.top4top.io/p_3094un9kv0.jpg" -- Ganti dengan URL yang tepat
+    Background.ScaleType = Enum.ScaleType.Crop
+    Background.Position = UDim2.new(0, 0, 0, 0)
+    Background.ZIndex = 0
+    Background.BackgroundTransparency = 1
+    -- Lanjutkan konfigurasi elemen GUI lainnya
 	local TopFrame = Instance.new("Frame")
 	local Title = Instance.new("TextLabel")
 	local CloseBtn = Instance.new("TextButton")
