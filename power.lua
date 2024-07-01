@@ -1,6 +1,15 @@
+getgenv().Config = {
+    miscfeatures = false
+}
+
 local players = game:GetService("Players")
 local whitelist = {"devilfruitsXQ"}
 if players.LocalPlayer.Name == whitelist [1] then
+
+	
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()--[["https://raw.githubusercontent.com/eskeyv/Loader/main/Gui/ui2.lua"))()]]
+local window = DrRayLibrary:Load("Dr.Shin", "Default")
+
 
 local LOAD_TIME = tick()
 local queueonteleport = queue_on_teleport or queueonteleport
