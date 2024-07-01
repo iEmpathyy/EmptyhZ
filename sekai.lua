@@ -451,10 +451,10 @@ cFire.newButton("Fire Chosen Class Above", function()
         intervalserialsnper = value
     end)
     local originalstockserial = 69
-    serial.newBox("Product's Total / Original Copies", "number", function(value) -- "number" or "string"
+    serial.newInput("Product's Total / Original Copies", "Number only, not text!!", function(value) -- "number" or "string"
         originalstockserial = value
     end)
-    serial.newButton("Get Total stock ^", function()
+    serial.newButton("Get Total stock ^", "Get Total Stock Item.", function()
         if request then
             local xdresponse = request({
                 Url = "https://catalog.roblox.com/v1/catalog/items/" .. tostring(productidserialsniper) .. "/details?itemType=Asset",
@@ -475,7 +475,7 @@ cFire.newButton("Fire Chosen Class Above", function()
     }, function(value)
         tickserialsniper = value
     end)
-    serial.newToggle("Serial Sniper (Have its Buy Prompt Opened)", function(bool2)
+    serial.newToggle("Serial Sniper (Have its Buy Prompt Opened)", "idk what this, you better activate it.", false, function(bool2)
         _G.SerialSniper = bool2
         spawn(function()
             while _G.SerialSniper and task.wait(intervalserialsnper) do
