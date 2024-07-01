@@ -445,11 +445,7 @@ cFire.newButton("Fire Chosen Class Above", "Click this button for firechosen", f
     end)
     
     local intervalserialsnper = 0
-    serial.newSlider("Loop interval Serial Sniper", {
-        min = 0, -- min value of the slider
-        max = 10, -- max value of the slider
-        precise = true -- max 2 decimals
-    }, function(value)
+    serial.newSlider("Loop interval Serial Sniper", "Max. 10!", 10, false, function(value)
         intervalserialsnper = value
     end)
     local originalstockserial = 69
@@ -470,11 +466,7 @@ cFire.newButton("Fire Chosen Class Above", "Click this button for firechosen", f
         end
     end)
     local tickserialsniper = 2
-    serial.newSlider("Threads of checks", {
-        min = 1, -- min value of the slider
-        max = 8, -- max value of the slider
-        precise = false -- max 2 decimals
-    }, function(value)
+    serial.newSlider("Threads of checks", "Max. 8!", 8, false, function(value)
         tickserialsniper = value
     end)
     serial.newToggle("Serial Sniper (Have its Buy Prompt Opened)", "idk what this, you better activate it.", false, function(bool2)
