@@ -129,6 +129,7 @@ for i, v in pairs(game.RobloxReplicatedStorage:GetDescendants()) do
     end)
 end
 
+task.spawn(function()
 
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()--[["https://raw.githubusercontent.com/eskeyv/Loader/main/Gui/ui2.lua"))()]]
 local window = DrRayLibrary:Load("Dr.Shin", "Default")
@@ -137,7 +138,7 @@ local window = DrRayLibrary:Load("Dr.Shin", "Default")
 local normal = DrRayLibrary.newTab("Normal Snipe", "5747127696")
 local vip = DrRayLibrary.newTab("VIP+ Snipe", "no")
 local cFire = DrRayLibrary.newTab("Chosen Fire", "no")
-local klik = DrRayLibrary.newTab("Clicking", "no")
+local serial = DrRayLibrary.newTab("Serial Snipe", "no")
 
 --███████████ N O R M A L  S N I P E ████████████
 
@@ -422,125 +423,111 @@ cFire.newButton("Fire Chosen Class Above", function()
         if aPI == "Click Detector" and descendant:IsA("ClickDetector") then
             task.spawn(function()
                 fireclickdetector(descendant)
-                end)
-            end
-        end
-    end)
-end)
-
---local cLick = DrRayLibrary.newTab("Clicking", "no") -- Creates the folder(U will put here your buttons,etc)
-
-local autoclicklim = 0
-klik.newSlider("AutoClick Speed (Default 0)", "Speed AutoClick", 5, false, function(value)
-    autoclicklim = value
-end)
-
-local limoffsetX = 55
-klik.newSlider("AutoClick Offset X", "Position X AutoClick", 200, false, function(value)
-    limoffsetX = value
-end)
-
-local limoffsetY = 65.5
-klik.newSlider("AutoClick Offset Y", "Position Y AutoClick", 200, false, function(value)
-    limoffsetY = value
-end)
-local MaxPrice = 1
-klik.newSlider("Max Price (1 Default)", "Max Price UGC!", 10000, false, function(value)
-    MaxPrice = value
-end)
-
-klik.newToggle("Auto Clicker Buy Limited", "Buy Limited Fast", false, function(bool1)
-    _G.limsniperautoclicker = bool1
-    spawn(function()
-
-        while task.wait(autoclicklim) and _G.limsniperautoclicker do
-            if game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild("Prompt") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild("AlertContents") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
-                    "Footer") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
-                    "Buttons") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
-                    "2") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent:FindFirstChildOfClass("TextLabel") and tonumber(
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent:FindFirstChildOfClass("TextLabel").Text) <= tonumber(MaxPrice) then
-
-
-                        local yes = game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
-                                        .Footer.Buttons[2].AbsolutePosition
-                        game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                            yes.Y + tonumber(limoffsetY), 0, true, game, 1)
-                        task.wait()
-                        game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                            yes.Y + tonumber(limoffsetY), 0, false, game, 1)
-
-            end
-        end
-    end)
-end)
-klik.newToggle("Auto Clicker Buy (0 ONLY)", "Buy 0 Robux Only", false, function(bool2)
-    _G.limsniperautoclicker2 = bool2    
-    spawn(function()
-        while task.wait(autoclicklim) and _G.limsniperautoclicker2 do
-            if game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild("Prompt") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild("AlertContents") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
-                    "Footer") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
-                    "Buttons") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
-                    "2") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent:FindFirstChildOfClass("TextLabel") and tonumber(
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[2]:FindFirstChild(
-                    "ButtonContent").ButtonMiddleContent:FindFirstChildOfClass("TextLabel").Text) <= tonumber(0) then
-
-                        local yes = game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
-                                        .Footer.Buttons[2].AbsolutePosition
-                        game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                            yes.Y + tonumber(limoffsetY), 0, true, game, 1)
-                        task.wait()
-                        game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                            yes.Y + tonumber(limoffsetY), 0, false, game, 1)
-
-            end
-        end
-    end)
-end)
-klik.newToggle("Auto Close Error Clicker", "Close Error Clicker!", false, function(bool2)
-    _G.limsniperautoclicker33 = bool2
-    spawn(function()
-        while task.wait(autoclicklim) and _G.limsniperautoclicker33 do
-            if game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild("Prompt") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild("AlertContents") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
-                    "Footer") and
-                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
-                    "Buttons") and
-                not game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
-                    "2") then
-                if game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
-                    "1") then
-
-                            local yes = game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt
-                                            .AlertContents.Footer.Buttons[1].AbsolutePosition
-                            game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                                yes.Y + tonumber(limoffsetY), 0, true, game, 1)
-                            task.wait()
-                            game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X + tonumber(limoffsetX),
-                                yes.Y + tonumber(limoffsetY), 0, false, game, 1)
-
-                    end
+                    end)
                 end
             end
         end)
     end)
+
+    local b = w2:CreateFolder("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
+    
+    local serialyouwant = 69
+    serial.newBox("Serial you Want", "number", function(value) -- "number" or "string"
+        serialyouwant = value
+    end)
+    
+    local productidserialsniper = 123456789
+    
+    serial.newBox("Product Id to Serial Snipe", "number", function(value) -- "number" or "string"
+        productidserialsniper = value
+    end)
+    
+    local intervalserialsnper = 0
+    serial.newSlider("Loop interval Serial Sniper", {
+        min = 0, -- min value of the slider
+        max = 10, -- max value of the slider
+        precise = true -- max 2 decimals
+    }, function(value)
+        intervalserialsnper = value
+    end)
+    local originalstockserial = 69
+    serial.newBox("Product's Total / Original Copies", "number", function(value) -- "number" or "string"
+        originalstockserial = value
+    end)
+    serial.newButton("Get Total stock ^", function()
+        if request then
+            local xdresponse = request({
+                Url = "https://catalog.roblox.com/v1/catalog/items/" .. tostring(productidserialsniper) .. "/details?itemType=Asset",
+                Method = "GET"
+            })
+                local xdmessage = game:GetService("HttpService"):JSONDecode(xdresponse.Body)
+    if xdmessage and xdmessage["totalQuantity"] then
+    print(xdmessage["totalQuantity"])
+    originalstockserial = xdmessage["totalQuantity"]
+    end
+        end
+    end)
+    local tickserialsniper = 2
+    serial.newSlider("Threads of checks", {
+        min = 1, -- min value of the slider
+        max = 8, -- max value of the slider
+        precise = false -- max 2 decimals
+    }, function(value)
+        tickserialsniper = value
+    end)
+    serial.newToggle("Serial Sniper (Have its Buy Prompt Opened)", function(bool2)
+        _G.SerialSniper = bool2
+        spawn(function()
+            while _G.SerialSniper and task.wait(intervalserialsnper) do
+                task.spawn(function()
+                    for i = 1, tonumber(tickserialsniper) do
+                        task.spawn(function()
+                            if game:GetService("MarketplaceService"):GetProductInfo(productidserialsniper).Remaining ~= nil then
+                                print(originalstockserial -
+                                          game:GetService("MarketplaceService"):GetProductInfo(productidserialsniper).Remaining,
+                                    "Sales")
+                                if (originalstockserial -
+                                    game:GetService("MarketplaceService"):GetProductInfo(productidserialsniper).Remaining) ==
+                                    (tonumber(serialyouwant) - 1) then
+                                    if game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild("Prompt") and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild(
+                                            "AlertContents") and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
+                                            "Footer") and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
+                                            .Footer:FindFirstChild("Buttons") and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
+                                            .Footer.Buttons:FindFirstChild("2") and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
+                                            .Footer.Buttons[2]:FindFirstChild("ButtonContent").ButtonMiddleContent and
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
+                                            .Footer.Buttons[2]:FindFirstChild("ButtonContent").ButtonMiddleContent:FindFirstChildOfClass(
+                                            "TextLabel") and tonumber(
+                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents
+                                            .Footer.Buttons[2]:FindFirstChild("ButtonContent").ButtonMiddleContent:FindFirstChildOfClass(
+                                            "TextLabel").Text) <= tonumber(MaxPrice) then
+    
+                                                local yes = game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator
+                                                                .Prompt.AlertContents.Footer.Buttons[2].AbsolutePosition
+                                                game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X +
+                                                                                                                tonumber(
+                                                        limoffsetX), yes.Y + tonumber(limoffsetY), 0, true, game, 1)
+                                                task.wait()
+                                                game:GetService("VirtualInputManager"):SendMouseButtonEvent(yes.X +
+                                                                                                                tonumber(
+                                                        limoffsetX), yes.Y + tonumber(limoffsetY), 0, false, game, 1)
+    
+    
+                                    end
+                                end
+                            end
+                        end)
+                    end
+                end)
+            end
+        end)
+    end)
+end)
 
 elseif players.LocalPlayer then
 	game.Players.LocalPlayer:Kick("YOU NOT WHITELIST, BUY WHITELIST FIRST AND USE THIS SCRIPT")
