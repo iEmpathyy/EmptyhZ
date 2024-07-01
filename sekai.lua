@@ -432,7 +432,7 @@ cFire.newButton("Fire Chosen Class Above", function()
     serial.newLabel("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
     
     local serialyouwant = 69
-    serial.newBox("Serial you Want", "number", function(value) -- "number" or "string"
+    serial.newInput("Serial you Want", "Number only, not text!!", function(value) -- "number" or "string"
         serialyouwant = value
     end)
     
