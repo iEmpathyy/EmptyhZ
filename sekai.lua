@@ -404,6 +404,8 @@ local aPI = "Touch Interest"
 cFire.newDropdown("What to fire??",  "Select one of these options!", {"Touch Interest", "Proximity Prompt", "Click Detector"}, true, function(Value)
     aPI = Value
 end)
+
+ cFire.newLabel("Rejoin to stop it")
 			
 cFire.newButton("Fire Chosen Class Above", "Click this button for firechosen" function()
     spawn(function()
@@ -429,8 +431,8 @@ cFire.newButton("Fire Chosen Class Above", "Click this button for firechosen" fu
             end
         end)
     end)
-    cFire.newLabel("Rejoin to stop it")
 
+			
     serial.newLabel("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
     
     local serialyouwant = 69
