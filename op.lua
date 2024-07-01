@@ -1,3 +1,5 @@
+-- FUCKING SKIDS,GO AWAY MOTHERF*CKER
+
 local players = game:GetService("Players")
 local whitelist = {"devilfruitsXQ"}
 if players.LocalPlayer.Name == whitelist [1] then
