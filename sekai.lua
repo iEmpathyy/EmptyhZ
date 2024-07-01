@@ -429,7 +429,7 @@ cFire.newButton("Fire Chosen Class Above", function()
         end)
     end)
 
-    local b = w2:CreateFolder("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
+    serial.newLabel("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
     
     local serialyouwant = 69
     serial.newBox("Serial you Want", "number", function(value) -- "number" or "string"
