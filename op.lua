@@ -1,7 +1,3 @@
-getgenv().Config = {
-    miscfeatures = false
-}
-
 local players = game:GetService("Players")
 local whitelist = {"devilfruitsXQ"}
 if players.LocalPlayer.Name == whitelist [1] then
