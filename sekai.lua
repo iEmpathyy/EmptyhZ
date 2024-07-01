@@ -438,7 +438,7 @@ cFire.newButton("Fire Chosen Class Above", function()
     
     local productidserialsniper = 123456789
     
-    serial.newBox("Product Id to Serial Snipe", "number", function(value) -- "number" or "string"
+    serial.newInput("Product Id to Serial Snipe", "Number only!", function(value) -- "number" or "string"
         productidserialsniper = value
     end)
     
