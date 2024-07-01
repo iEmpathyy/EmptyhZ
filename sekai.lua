@@ -404,7 +404,8 @@ local aPI = "Touch Interest"
 cFire.newDropdown("What to fire??",  "Select one of these options!", {"Touch Interest", "Proximity Prompt", "Click Detector"}, true, function(Value)
     aPI = Value
 end)
-cFire.newButton("Fire Chosen Class Above", function()
+			
+cFire.newButton("Fire Chosen Class Above", "Click this button for firechosen" function()
     spawn(function()
     for _, descendant in ipairs(workspace:GetDescendants()) do
         if aPI == "Proximity Prompt" and descendant:IsA("ProximityPrompt") then
@@ -428,6 +429,7 @@ cFire.newButton("Fire Chosen Class Above", function()
             end
         end)
     end)
+    cFire.newLabel("Rejoin to stop it")
 
     serial.newLabel("Serial Sniper") -- Creates the folder(U will put here your buttons,etc)
     
